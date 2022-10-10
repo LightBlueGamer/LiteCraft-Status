@@ -8,10 +8,11 @@ const servs = [
     {name: "LiteCraft", ip: "lc"},
 ];
 
+const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
 const servers: any[] = [];
 
 for (const s of servs) {
-
   let headersList = {
     "Accept": "*/*",
   }
@@ -31,6 +32,7 @@ for (const s of servs) {
   };
 
   servers.push(obj);
+  await wait(20)
 }
 
 const Status: Component = () => (
